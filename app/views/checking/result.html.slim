@@ -8,52 +8,13 @@ table
     tr
       td colspan='3' class='level'
         = section[:name]
-      - section[:attributes].each do |parent_attribute|
-        - class_name = "parent"
-        - class_name += ' not-found' if parent_attribute.count == 0
-        tr class = class_name
-          td
-            = parent_attribute.name
-          td
-            = parent_attribute.count
-          td
-            = parent_attribute.description
-        - if parent_attribute.children
-          - parent_attribute.children.each do |child|
-            - class_name = "child"
-            - class_name += ' not-found' if child.count == 0
-            tr class = class_name
-              td
-                = child.name
-              td
-                = child.count
-              td
-                = child.description
+      = render partial: 'attribute', collection: section[:attributes], locals: { class_name: 'parent' }
   - @abitur_result_arr.each do |level|
-    tr colspan='3' class='level'
-      = level[:level]
+    tr
+      td colspan='3' class='level'
+        = level[:level]
     - level[:periods].each do |period|
       tr
         td colspan='3' class='when'
           = period[:when]
-      - period[:attributes].each do |parent_attribute|
-        - class_name = "parent"
-        - class_name += ' not-found' if parent_attribute.count == 0
-        tr class = class_name
-          td
-            = parent_attribute.name
-          td
-            = parent_attribute.count
-          td
-            = parent_attribute.description
-        - if parent_attribute.children
-          - parent_attribute.children.each do |child|
-            - class_name = "child"
-            - class_name += ' not-found' if child.count == 0
-            tr class = class_name
-              td
-                = child.name
-              td
-                = child.count
-              td
-                = child.description
+      = render partial: 'attribute', collection: period[:attributes], locals: { class_name: 'parent' }
