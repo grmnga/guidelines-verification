@@ -15,3 +15,14 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+
+window.onload = function() {
+    document.getElementsByClassName('button')[0].addEventListener('click', function() {
+        button = document.getElementById('message');
+        button.innerText = 'Проверка началась. Это займет некоторое время...';
+    })
+    button = document.getElementById('message');
+    console.log(button)
+}

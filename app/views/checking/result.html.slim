@@ -1,0 +1,15 @@
+table
+  - @sveden_result_arr.each do |section|
+    tr
+      td colspan='3' class='section'
+        = section[:name]
+      = render partial: 'attribute', collection: section[:attributes], locals: { class_name: 'parent' }
+  - @abitur_result_arr.each do |level|
+    tr
+      td colspan='3' class='level'
+        = level[:level]
+    - level[:periods].each do |period|
+      tr
+        td colspan='3' class='when'
+          = period[:when]
+      = render partial: 'attribute', collection: period[:attributes], locals: { class_name: 'parent' }
