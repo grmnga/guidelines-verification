@@ -1,12 +1,7 @@
-h1
-  | Checking#result
-p
-  | Find me in app/views/checking/result.html.erb
-
 table
   - @sveden_result_arr.each do |section|
     tr
-      td colspan='3' class='level'
+      td colspan='3' class='section'
         = section[:name]
       = render partial: 'attribute', collection: section[:attributes], locals: { class_name: 'parent' }
   - @abitur_result_arr.each do |level|

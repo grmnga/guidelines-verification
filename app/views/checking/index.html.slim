@@ -1,6 +1,11 @@
-h1
-  | Checking#index
-p
-  | Find me in app/views/checking/index.html.erb
+/ h1
+/   | Checking#index
+/ p
+/   | Find me in app/views/checking/index.html.erb
+.background
+  h3.main
+    | Сервис проверки выполнения требований методических рекомендаций на сайте СурГУ
 
-= link_to 'Result', checking_result_path
+  .wrapper
+    = link_to 'Запуск проверки', checking_result_path, class: 'button';
+    label#message
