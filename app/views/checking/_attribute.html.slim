@@ -1,0 +1,10 @@
+- class_name += ' not-found' if attribute.count == 0
+tr class = class_name
+  td
+    = attribute.name
+  td
+    = attribute.count
+  td
+    = attribute.description
+- if attribute.children
+  = render partial: 'attribute', collection: attribute.children, locals: { class_name: 'child' }
