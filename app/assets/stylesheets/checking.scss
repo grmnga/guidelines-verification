@@ -1,3 +1,45 @@
 // Place all the styles related to the checking controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.not-found {
+  background: #ffc7c7;
+}
+.level {
+  font-size: 24px;
+  padding: 10px;
+  background: #4F81BD;
+  color: white;
+}
+.when {
+  font-size: 20px;
+  background: #a6c2e5;
+}
+td {
+  border: solid black 1.0pt;
+  padding: 0 10px;
+}
+table {
+  border-collapse: collapse;
+}
+tr {
+  border: solid black 1.0pt;
+}
+.parent td:first-child {
+  font-weight: 900;
+}
+.child td:first-child {
+  padding-left: 20px;
+}
+.url-check-false {
+  background: red;
+  color: white;
+  padding: 0;
+  font-size: 16px;
+}
+.url-check-true {
+  background: black;
+  color: white;
+  padding: 0;
+  font-size: 16px;
+}
