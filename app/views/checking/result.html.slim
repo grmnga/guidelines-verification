@@ -13,3 +13,7 @@ table
         td colspan='3' class='when'
           = period[:when]
       = render partial: 'attribute', collection: period[:attributes], locals: { class_name: 'parent' }
+
+
+- unless Rails.env.development?
+  = render 'shared/analytics'

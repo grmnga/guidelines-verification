@@ -23,6 +23,4 @@ window.onload = function() {
         button = document.getElementById('message');
         button.innerText = 'Проверка началась. Это займет некоторое время...';
     })
-    button = document.getElementById('message');
-    console.log(button)
 }
