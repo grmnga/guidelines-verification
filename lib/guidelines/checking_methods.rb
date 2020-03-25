@@ -46,6 +46,14 @@ def get_sveden_result_array
   section_sveden_result
 end
 
+def get_sveden_section_result section
+  section_info = {}
+  section_info[:url] = section[:url]
+  section_info[:name] = section[:name]
+  section_info[:attributes] = create_attribute_objects_array section[:attributes]
+  section_info
+end
+
 
 def search_hash(node, tags, parent = nil)
   if node.attribute('itemprop')

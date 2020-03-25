@@ -17,10 +17,15 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 
+function ShowMessage() {
+    button = document.getElementById('message');
+    button.innerText = 'Проверка началась. Это займет некоторое время...';
+}
 
 window.onload = function() {
-    document.getElementsByClassName('button')[0].addEventListener('click', function() {
-        button = document.getElementById('message');
-        button.innerText = 'Проверка началась. Это займет некоторое время...';
-    })
+    document.getElementById('start_full_checking').addEventListener('click', ShowMessage);
+    document.getElementById('start_subsection_checking').addEventListener('click', ShowMessage);
+    document.getElementById('show_select_subsection_button').addEventListener('click', function () {
+       document.getElementById('select_subsection_block').style = 'display: block';
+    });
 }
