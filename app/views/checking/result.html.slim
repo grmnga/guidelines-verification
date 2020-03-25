@@ -13,6 +13,9 @@ table
         td colspan='3' class='when'
           = period[:when]
       = render partial: 'attribute', collection: period[:attributes], locals: { class_name: 'parent' }
+  tr
+    td colspan='3' class='level'
+      = "Заполненность разделов: #{@persent.round(2)}%"
 
 
 - unless Rails.env.development?
