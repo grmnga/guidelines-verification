@@ -1,22 +1,35 @@
 table
+  tr
+    td colspan='3' class='level'
+      = "Заполненность разделов: #{@persent.round(2)}%"
   - @sveden_result_arr.each do |section|
     tr
       td colspan='3' class='section'
         = section[:name]
-      = render partial: 'attribute', collection: section[:attributes], locals: { class_name: 'parent' }
+    tr class='table-title'
+      td
+        | Название
+      td
+        | Кол-во
+      td
+        | Описание
+    = render partial: 'attribute', collection: section[:attributes], locals: { class_name: 'parent' }
   - @abitur_result_arr.each do |level|
     tr
       td colspan='3' class='level'
         = level[:level]
+    tr class='table-title'
+      td
+        | Название
+      td
+        | Кол-во
+      td
+        | Описание
     - level[:periods].each do |period|
       tr
         td colspan='3' class='when'
           = period[:when]
       = render partial: 'attribute', collection: period[:attributes], locals: { class_name: 'parent' }
-  tr
-    td colspan='3' class='level'
-      = "Заполненность разделов: #{@persent.round(2)}%"
-
 
 - unless Rails.env.development?
   = render 'shared/metrika'
