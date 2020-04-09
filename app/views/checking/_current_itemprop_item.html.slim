@@ -1,0 +1,6 @@
+- current_itemprop_item.each do |itemprop_name, current_itemprops_tags|
+  .current-itemprop-item
+    = itemprop_name
+    - current_itemprops_tags.each do |tag|
+      - if tag.has_children?
+        = render partial: 'current_itemprop_item', object: tag.children

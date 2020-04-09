@@ -2,7 +2,18 @@ table
   tr
     td colspan='3' class='section'
       = @section_result[:name]
+  tr class='table-title'
+    td
+      | Название
+    td
+      | Кол-во
+    td
+      | Описание
     = render partial: 'attribute', collection: @section_result[:attributes], locals: { class_name: 'parent' }
+
+.current-itemprops
+  h2 Текущая иерархия атрибутов в подразделе
+  = render partial: 'current_itemprop_item', object: @current_itemprops
 
 
 - unless Rails.env.development?

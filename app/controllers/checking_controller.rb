@@ -24,6 +24,7 @@ class CheckingController < ApplicationController
     section_data = SVEDEN_ATTRIBUTES.find { |data| data[:url] == params[:subsection] }
     @section_result = get_sveden_section_result section_data
     check_section(@section_result, html)
+    @current_itemprops = start_search_hash html
   end
 
   def get_persent

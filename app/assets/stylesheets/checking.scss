@@ -126,3 +126,23 @@ h3.main {
   text-shadow: 1px 1px 2px #131313;
 }
 
+.table-title {
+  background: #DBE5F1;
+  font-weight: 900;
+  font-size: 18px;
+  color: #150c74;
+}
+
+.current-itemprops {
+  margin: auto;
+  width: fit-content;
+  padding-bottom: 50px;
+  p, .current-itemprop-item {
+    padding-left: 10px;
+    font-size: 18px;
+    font-family: monospace;
+    > div {
+      border-left: 1px solid black;
+    }
+  }
+}
