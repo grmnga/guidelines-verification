@@ -37,13 +37,18 @@ class CheckingController < ApplicationController
       end
     end
     @abitur_result_arr.each do |level|
-      level[:periods].first do |period|
-        period[:attributes].each do |attribute|
-          section_count_result = get_count attribute
-          persent[:yes] += section_count_result[:yes]
-          persent[:no] += section_count_result[:no]
-        end
+      period = level[:periods][0]
+      period[:attributes].each do |attribute|
+        section_count_result = get_count attribute
+        persent[:yes] += section_count_result[:yes]
+        persent[:no] += section_count_result[:no]
       end
+      # period = level[:periods][1]
+      # period[:attributes].each do |attribute|
+      #   section_count_result = get_count attribute
+      #   persent[:yes] += section_count_result[:yes]
+      #   persent[:no] += section_count_result[:no]
+      # end
     end
     persent[:yes].to_f / ( persent[:no] + persent[:yes] ) * 100
   end
