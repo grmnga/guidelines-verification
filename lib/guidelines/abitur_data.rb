@@ -175,7 +175,7 @@ ABITUR_ATTRIBUTES = [
                             },
                             {
                                 value: 'priemListCommon',
-                                description: 'Сведения о лицах, поступающих на места в пределах целевой квоты'
+                                description: 'Сведения о лицах, поступающих на основные места в рамках контрольных цифр'
                             },
                             {
                                 value: 'priemListContract',
@@ -386,7 +386,7 @@ ABITUR_ATTRIBUTES = [
                             },
                             {
                                 value: 'priemListCommon',
-                                description: 'Сведения о лицах, поступающих на места в пределах целевой квоты'
+                                description: 'Сведения о лицах, поступающих на основные места в рамках контрольных цифр'
                             },
                             {
                                 value: 'priemListContract',
@@ -597,7 +597,7 @@ ABITUR_ATTRIBUTES = [
                             },
                             {
                                 value: 'priemListCommon',
-                                description: 'Сведения о лицах, поступающих на места в пределах целевой квоты'
+                                description: 'Сведения о лицах, поступающих на основные места в рамках контрольных цифр'
                             },
                             {
                                 value: 'priemListContract',
@@ -794,7 +794,7 @@ ABITUR_ATTRIBUTES = [
                             },
                             {
                                 value: 'priemListCommon',
-                                description: 'Сведения о лицах, поступающих на места в пределах целевой квоты'
+                                description: 'Сведения о лицах, поступающих на основные места в рамках контрольных цифр'
                             },
                             {
                                 value: 'priemListContract',
