@@ -1,7 +1,7 @@
 table
   tr
     td colspan='3' class='level'
-      = "Заполненность разделов: #{@persent.round(2)}%"
+      = "Заполненность разделов (процент от всех атрибутов): #{@persent.round(2)}%"
   - @sveden_result_arr.each do |section|
     tr
       td colspan='3' class='section'
