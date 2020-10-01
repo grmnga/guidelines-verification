@@ -22,6 +22,10 @@ function ShowMessage() {
     button.innerText = 'Проверка началась. Это займет некоторое время...';
 }
 
+function disableButton() {
+    this.style = "background: #AAAAAA; cursor: default; pointer-events: none;";
+}
+
 window.onload = function() {
     document.getElementById('start_full_checking').addEventListener('click', ShowMessage);
     document.getElementById('start_subsection_checking').addEventListener('click', ShowMessage);
@@ -29,13 +33,6 @@ window.onload = function() {
        document.getElementById('select_subsection_block').style = 'display: block';
     });
 
-    var start_full_checking_button = document.getElementById("start_full_checking");
-    var start_subsection_checking_button = document.getElementById("start_subsection_checking");
-
-    start_full_checking_button.addEventListener("click", disableButton);
-    start_subsection_checking_button.addEventListener("click", disableButton);
-
-    function disableButton() {
-        this.style = "background: #AAAAAA; cursor: default; pointer-events: none;";
-    }
+    document.getElementById("start_full_checking").addEventListener("click", disableButton);
+    document.getElementById("start_subsection_checking").addEventListener("click", disableButton);
 }
