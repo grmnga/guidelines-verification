@@ -28,4 +28,14 @@ window.onload = function() {
     document.getElementById('show_select_subsection_button').addEventListener('click', function () {
        document.getElementById('select_subsection_block').style = 'display: block';
     });
+
+    var start_full_checking_button = document.getElementById("start_full_checking");
+    var start_subsection_checking_button = document.getElementById("start_subsection_checking");
+
+    start_full_checking_button.addEventListener("click", disableButton);
+    start_subsection_checking_button.addEventListener("click", disableButton);
+
+    function disableButton() {
+        this.style = "background: #AAAAAA; cursor: default; pointer-events: none;";
+    }
 }
