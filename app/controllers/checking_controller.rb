@@ -5,13 +5,14 @@ class CheckingController < ApplicationController
   @@url = 'http://www.surgu.ru'
   
   def index
-    @sveden_subsections = SVEDEN_ATTRIBUTES.map { |subsection_name| [ subsection_name[:name], subsection_name[:url] ] }
+    # byebug
+    @sveden_subsections = SVEDEN_ATTRIBUTES[:'2019'].map { |subsection_name| [ subsection_name[:name], subsection_name[:url] ] }
   end
 
   def result
     # sveden_urls = %w( http://www.surgu.ru/sveden )
     sveden_urls = ["#{@@url}/sveden"]
-    @sveden_result_arr = get_sveden_result_array
+    @sveden_result_arr = get_sveden_result_array params[:year]
     processing_of_sveden_section(sveden_urls, @sveden_result_arr)
 
     # abitur_urls = %w( http://www.surgu.ru/abitur )

@@ -34,9 +34,11 @@ def get_abitur_result_array
   section_abitur_result
 end
 
-def get_sveden_result_array
+def get_sveden_result_array(year)
+  year ||= '2019'
   section_sveden_result = []
-  SVEDEN_ATTRIBUTES.each do |section|
+  # byebug
+  SVEDEN_ATTRIBUTES[year.to_sym].each do |section|
     section_info = {}
     section_info[:url] = section[:url]
     section_info[:name] = section[:name]

@@ -7,7 +7,8 @@
     | Сервис проверки выполнения требований методических рекомендаций на сайте СурГУ
 
   .wrapper
-    = link_to 'Запуск полной проверки', checking_result_path, class: 'button', id: 'start_full_checking'
+    = link_to 'Запуск полной проверки по МР 2019 года', checking_result_path, class: 'button', id: 'start_full_checking'
+    = link_to 'Запуск полной проверки по МР 2020 года', checking_result_path(year: '2020'), class: 'button', id: 'start_full_checking'
     / = link_to "Запуск выборочной проверки", ' ', id: 'show_select_subsection_button', class: 'button'
     = button_tag 'Запуск выборочной проверки', id: 'show_select_subsection_button', class: 'button'
     #select_subsection_block
