@@ -55,12 +55,12 @@ tr {
     font-family: inherit;
     cursor: pointer;
   }
-  #select_subsection_block {
+  #select_subsection_block, #select_subsection_block_2020 {
     display: none;
     select {
       margin: auto;
       display: block;
-      width: 250px;
+      width: 500px;
       height: 25px;
       font-size: 18px;
     }
@@ -69,7 +69,7 @@ tr {
 .button {
   margin: 10px auto;
   display: block;
-  width: 250px;
+  width: 500px;
   //background: #52c0cd;
   background: linear-gradient(-45deg, rgba(255, 134, 89, 0.41), rgba(231, 60, 126, 0.4), rgba(35, 166, 213, 0.4), rgba(35, 213, 171, 0.4));
   background-size: 400% 400%;

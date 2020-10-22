@@ -30,7 +30,13 @@ class CheckingController < ApplicationController
     @subsection_name = params[:subsection]
     url = "http://www.surgu.ru/sveden/#{params[:subsection]}"
     html = get_html_from_section(url)
-    section_data = SVEDEN_ATTRIBUTES.find { |data| data[:url] == params[:subsection] }
+    # byebug
+    if params[:year]
+      year = params[:year]
+    else
+      year = '2019'
+    end
+    section_data = SVEDEN_ATTRIBUTES[year.to_sym].find { |data| data[:url] == params[:subsection] }
     @section_result = get_sveden_section_result section_data
     check_section(@section_result, html)
     @current_itemprops = start_search_hash html
