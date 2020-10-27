@@ -30,7 +30,6 @@ class CheckingController < ApplicationController
     @subsection_name = params[:subsection]
     url = "http://www.surgu.ru/sveden/#{params[:subsection]}"
     html = get_html_from_section(url)
-    # byebug
     if params[:year]
       year = params[:year]
     else

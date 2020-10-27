@@ -97,22 +97,31 @@ def print_tags_tree(tree)
 end
 
 def check_attribs(tags, attributes)
+  # byebug
   tags.each do |root_tag_name, root_tag_arr|
     root_tag_arr.each do |root_tag|
       attr_obj = attributes.find { |attr| attr.name == root_tag.to_s }
       # puts attr_obj.name if attr_obj
       if attr_obj
         attr_obj.count += 1
-        if root_tag.has_children? && attr_obj.has_children?
-          # puts "#{root_tag.to_s} has children"
-          root_tag.children.each do |itemprop, children_tags|
-            children_attribs = attr_obj.children.find { |child| child.name == itemprop }
-            if children_attribs
-              children_attribs.count += children_tags.length
-              # puts "#{children_attribs.name}: #{children_attribs.count}"
-            end
+        if root_tag.has_children?
+          check_attribs(root_tag.children, attributes)
+          if attr_obj.has_children?
+            check_attribs(root_tag.children, attr_obj.children)
+            # puts "#{root_tag.to_s} has children"
+            # root_tag.children.each do |itemprop, children_tags|
+            #   children_attribs = attr_obj.children.find { |child| child.name == itemprop }
+            #   if children_attribs
+            #     children_attribs.count += children_tags.length
+            #     # puts "#{children_attribs.name}: #{children_attribs.count}"
+            #   end
+            # end
+          # else
+          #   check_attribs(root_tag.children, attributes)
           end
         end
+      elsif root_tag.has_children?
+        check_attribs(root_tag.children, attributes)
       end
     end
   end
