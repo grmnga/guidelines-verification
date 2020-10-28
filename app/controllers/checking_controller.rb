@@ -41,6 +41,19 @@ class CheckingController < ApplicationController
     @current_itemprops = start_search_hash html
   end
 
+  def pdf_report_to_email
+    pdf = Prawn::Document.new
+    pdf.text "Hellow World!"
+    send_data pdf.render,
+              filename: "export.pdf",
+              type: 'application/pdf',
+              disposition: 'inline'
+
+    recipient = 'anna_titomer@mail.ru' # укажите свой адрес!
+    output = pdf.render
+    MainMailer.report_email(output, recipient).deliver
+  end
+
   def get_persent
     persent = {yes: 0, no: 0}
     @sveden_result_arr.each do |subsection|
