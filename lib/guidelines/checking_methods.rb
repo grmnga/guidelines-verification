@@ -34,10 +34,31 @@ def get_abitur_result_array
   section_abitur_result
 end
 
+def colorize(text, color_code)
+  "\e[#{color_code}m#{text}\e[0m"
+end
+
+def red(text); colorize(text, 31); end
+
 def get_sveden_result_array(year)
   year ||= '2019'
+  # section_sveden_result = []
+  # load_time_1 = Benchmark.measure do
+  #   # byebug
+  #   threads = []
+  #   for section in SVEDEN_ATTRIBUTES[year.to_sym]
+  #     threads << Thread.new(section) do |section|
+  #       section_info = {}
+  #       section_info[:url] = section[:url]
+  #       section_info[:name] = section[:name]
+  #       section_info[:attributes] = create_attribute_objects_array section[:attributes]
+  #       section_sveden_result << section_info
+  #     end
+  #   end
+  #   threads.each {|thr| thr.join }
+  # end
+
   section_sveden_result = []
-  # byebug
   SVEDEN_ATTRIBUTES[year.to_sym].each do |section|
     section_info = {}
     section_info[:url] = section[:url]
@@ -45,6 +66,10 @@ def get_sveden_result_array(year)
     section_info[:attributes] = create_attribute_objects_array section[:attributes]
     section_sveden_result << section_info
   end
+
+  # puts red '================================================'
+  # puts "Load time 1 is #{load_time_1}, load time 2 is #{load_time_2}"
+  # puts red '================================================'
   section_sveden_result
 end
 

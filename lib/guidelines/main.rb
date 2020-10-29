@@ -26,18 +26,47 @@ end
 
 def processing_of_sveden_section(urls, result_arr)
   urls.each do |university_url|
-    result_arr.each do |section|
-      begin
-        # Для каждого url открываем соединение и пытаемся получить html-код страницы
-        content = open("#{university_url}/#{section[:url]}")
-        html = Nokogiri::HTML(content)
-      rescue
+
+    # result_arr = get_sveden_result_array('2020')
+    load_time_2 = Benchmark.measure do
+      threads = []
+      for section in result_arr
+        threads << Thread.new(section) do |section|
+          begin
+            # Для каждого url открываем соединение и пытаемся получить html-код страницы
+            content = open("#{university_url}/#{section[:url]}")
+            html = Nokogiri::HTML(content)
+          rescue
+          end
+          if html
+            tags_with_itemprop = start_search_hash html
+            check_attribs(tags_with_itemprop, section[:attributes])
+          end
+        end
       end
-      if html
-        tags_with_itemprop = start_search_hash html
-        check_attribs(tags_with_itemprop, section[:attributes])
-      end
+      threads.each {|thr| thr.join }
     end
+    
+    # result_arr = get_sveden_result_array('2020')
+    # load_time_1 = Benchmark.measure do
+    #   result_arr.each do |section|
+    #     begin
+    #       # Для каждого url открываем соединение и пытаемся получить html-код страницы
+    #       content = open("#{university_url}/#{section[:url]}")
+    #       html = Nokogiri::HTML(content)
+    #     rescue
+    #     end
+    #     if html
+    #       tags_with_itemprop = start_search_hash html
+    #       check_attribs(tags_with_itemprop, section[:attributes])
+    #     end
+    #   end
+    # end
+
+
+    # puts red '================================================'
+    # puts "Load time 1 is #{load_time_1}, load time 2 is #{load_time_2}"
+    # puts red '================================================'
   end
 end
 
