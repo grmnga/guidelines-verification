@@ -87,5 +87,5 @@ production:
 staging:
   <<: *default
   database: guidelines_production
-  username: guidelines
-  password: <%= ENV['GUIDELINES_DATABASE_PASSWORD'] %>
+#  username: guidelines
+#  password: <%= ENV['GUIDELINES_DATABASE_PASSWORD'] %>
