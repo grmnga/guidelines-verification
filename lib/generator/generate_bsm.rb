@@ -16,7 +16,7 @@ module GenerateBsmTable
     # return if program_code != '49.03.02'
     @result[program_code.to_s] = {}
     return if %w(current last).include? program_code
-    puts "load #{program_code} #{COMMON_INFO[program_code][:name]} #{COMMON_INFO[program_code][:level]}"
+    puts "loading #{program_code} #{COMMON_INFO[program_code][:name]} #{COMMON_INFO[program_code][:level]}"
     url = @main_url + program_relative_path + '1/'
 
     # вытаскиваем ссылки на профили
