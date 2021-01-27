@@ -106,7 +106,7 @@ module GenerateOpopTable
 
   def create_table
     File.open('result.html', 'w') do |file|
-      file.write "<style> table { border-collapse: collapse; } td { border: 1px solid; padding: 5px; } </style>"
+      # file.write "<style> table { border-collapse: collapse; } td { border: 1px solid; padding: 5px; } </style>"
       file.write "<table class='ten'><tbody>"\
                     "<tr>"\
                     "<td>Код</td>"\
@@ -145,6 +145,12 @@ module GenerateOpopTable
     end
   end
 
+  def finish_table
+    File.open('result.html', 'a') do |file|
+      file.write "</tbody></table>"
+    end
+  end
+
   def generate_table
     puts 'Starting generate the table...'
     create_table
@@ -161,6 +167,7 @@ module GenerateOpopTable
         end
       end
     end
+    finish_table
     puts 'Done'
   end
 
