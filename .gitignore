@@ -32,3 +32,7 @@ yarn-debug.log*
 
 config/credentials/*
 config/secrets.yml
+
+# opop table generator result
+log0.html
+result.html
