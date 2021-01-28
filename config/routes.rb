@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'opop_table_html/bsm'
   get 'checking/index'
   get 'checking/result'
   get 'checking/subsection_result'

@@ -1,0 +1,4 @@
+h1 Сервис генерации таблиц по образовательным программам СурГУ
+h3 Уровень образования: #{level_name_by_prefix(@info.level)}
+p updated at #{@info.updated_at.getlocal('+05:00')}
+= @info.html.html_safe
