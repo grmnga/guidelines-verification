@@ -62,5 +62,13 @@ Rails.application.configure do
 
   config.generators do |g|
     g.template_engine :slim
+    g.test_framework  nil #to skip test framework
+    g.assets  false
+    g.helper false
+    g.stylesheets false
+  end
+
+  config.after_initialize do
+    GenerateTableJob.set(wait: 15.minutes).perform_later
   end
 end
