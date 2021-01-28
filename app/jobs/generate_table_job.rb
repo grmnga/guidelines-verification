@@ -7,8 +7,12 @@ class GenerateTableJob < ApplicationJob
     puts 'should start bsm'
     GenerateBsmTable.start
     bsm_table_html = IO.read('result.html')
-    bsm = OpopTableHtml.where('level': 'bsm')
-    bsm.update('html': bsm_table_html)
+    if OpopTableHtml.find_by('level': 'bsm')
+      bsm = OpopTableHtml.find_by('level': 'bsm')
+      bsm.update('html': bsm_table_html)
+    else
+      OpopTableHtml.create('level': 'bsm', 'html': bsm_table_html)
+    end
     GenerateTableJob.set(wait: 5.minutes).perform_later
   end
 end
